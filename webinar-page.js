@@ -41,9 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (sessionStorage.getItem("surveyCheckDone")) return;
 
         const uid = getCookie("candid-uid");
-        console.log("UID:", uid);
         if (uid && uid.startsWith("00Q") && getCookie("candid-survey-completed") !== "true") {
-            console.log("Handling '00Q' case");
             // Construct the URL for your Pipedream endpoint
             const pipedreamUrl = `https://eozz2wl7g1jqvlb.m.pipedream.net?uid=${encodeURIComponent(uid)}`;
 
@@ -69,10 +67,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        if (uid && uid.startsWith("003")) {
-            console.log("Setting survey-completed cookie for UID starting with 003");
-            setCookie("candid-survey-completed", "true", 365);  
-            sessionStorage.setItem("surveyCheckDone", "true");          
+        if (uid && uid.startsWith("003") && getCookie("candid-survey-completed") !== "true") {
+            setCookie("candid-survey-completed", "true", 365);            
         }    
     }
 
@@ -207,6 +203,7 @@ Webflow.push(function() {
         let fiveSecondElapsed = false;
         
         // setup + send xhr request
+        let formData = new FormData(event.target);
         let xhr = new XMLHttpRequest();
         xhr.open('POST', event.srcElement.action);
         xhr.send(formData);
