@@ -206,7 +206,6 @@ Webflow.push(function() {
         let fiveSecondElapsed = false;
         
         // setup + send xhr request
-        let formData = new FormData(event.target);
         let xhr = new XMLHttpRequest();
         xhr.open('POST', event.srcElement.action);
         xhr.send(formData);
