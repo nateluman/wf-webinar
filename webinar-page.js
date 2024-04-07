@@ -66,6 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 sessionStorage.setItem("surveyCheckDone", "true");
             });
         }
+
+        if (uid && uid.startsWith("003") && getCookie("candid-survey-completed") !== "true") {
+            setCookie("candid-survey-completed", true, 365);            
+        }    
     }
 
 
