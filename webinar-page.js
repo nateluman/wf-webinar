@@ -1,4 +1,5 @@
 //version 1.1
+console.log('nate');
 //Global function to get a cookie's value
 
 function getCookie(name) {
