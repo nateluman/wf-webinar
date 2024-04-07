@@ -1,3 +1,4 @@
+//version 1.1
 //Global function to get a cookie's value
 
 function getCookie(name) {
@@ -126,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // If webinar is upcoming, add upcoming class to form-container. This will move it up to the hero section
     var statusElement = document.getElementById('status');
     var webinarStatus = statusElement ? statusElement.getAttribute('data-status').trim().toLowerCase() : "";
+    console.log(webinarStatus);
     if (webinarStatus === "upcoming") {
         document.getElementById('form-container').classList.add('upcoming');
     }
