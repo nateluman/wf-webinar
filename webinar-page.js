@@ -1,4 +1,4 @@
-//version 1.1
+//version 1.2
 console.log('nate');
 //Global function to get a cookie's value
 
