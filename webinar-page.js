@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         if (uid && uid.startsWith("003")) {
+            console.log("Setting survey-completed cookie for UID starting with 003");
             setCookie("candid-survey-completed", "true", 365);  
             sessionStorage.setItem("surveyCheckDone", "true");          
         }    
