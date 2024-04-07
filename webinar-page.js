@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (sessionStorage.getItem("surveyCheckDone")) return;
 
         const uid = getCookie("candid-uid");
+        console.log("UID:", uid);
         if (uid && uid.startsWith("00Q") && getCookie("candid-survey-completed") !== "true") {
+            console.log("Handling '00Q' case");
             // Construct the URL for your Pipedream endpoint
             const pipedreamUrl = `https://eozz2wl7g1jqvlb.m.pipedream.net?uid=${encodeURIComponent(uid)}`;
 
