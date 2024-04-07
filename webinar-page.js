@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        if (uid && uid.startsWith("003") {
+        if (uid && uid.startsWith("003")) {
             setCookie("candid-survey-completed", "true", 365);  
             sessionStorage.setItem("surveyCheckDone", "true");          
         }    
