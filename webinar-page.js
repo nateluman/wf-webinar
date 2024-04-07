@@ -169,6 +169,31 @@ Webflow.push(function() {
         event.preventDefault(); // prevent default form submission behavior
         showLoading(); // show loading indicator
 
+        const formData = new FormData(event.target);
+        const email3 = formData.get('Email-3'); // Extracting Email-3 value from the form
+
+        if (email3) {
+            const apiURL = 'https://eohj8yatziqwvp.m.pipedream.net';
+            fetch(apiURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                apiResponded = true;
+                handleApiResponse(data);
+            })
+            .catch(error => console.error('Error in API call:', error));
+        }
+
+        // Function to handle API response
+        function handleApiResponse(data) {
+            if (data.id) {
+                setCookie("candid-uid", data.id, 365);
+            }
+            setCookie("candid-survey-completed", String(data.survey), 365);
+        }
+
         let responseReceived = false;
         let twoSecondPassed = false;
         let fiveSecondElapsed = false;
