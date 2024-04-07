@@ -88,14 +88,14 @@ let companyElementRecform = document.getElementById('Recform-practice');
 
 if (typeof google !== 'undefined')
 	google.maps.event.addDomListener(window, 'load', initAutocomplete);
-  companyElementRegform && companyElementRegform.addEventListener("click", geolocate);
+    companyElementRecform && companyElementRecform.addEventListener("click", geolocate);
   
   function initAutocomplete() {
-  	autocompleteRegform = new google.maps.places.Autocomplete(companyElementRegform,{
+    autocompleteRecform = new google.maps.places.Autocomplete(companyElementRecform,{
     	types: ['establishment']
       });
-    autocompleteRegform.setComponentRestrictions({'country': ['us']});
-    autocompleteRegform.addListener('place_changed', fillInAddress);
+      autocompleteRecform.setComponentRestrictions({'country': ['us']});
+      autocompleteRecform.addListener('place_changed', fillInAddress);
   }
   
   function fillInAddress() {
