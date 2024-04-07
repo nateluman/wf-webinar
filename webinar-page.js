@@ -67,8 +67,9 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        if (uid && uid.startsWith("003") && getCookie("candid-survey-completed") !== "true") {
-            setCookie("candid-survey-completed", "true", 365);            
+        if (uid && uid.startsWith("003") {
+            setCookie("candid-survey-completed", "true", 365);  
+            sessionStorage.setItem("surveyCheckDone", "true");          
         }    
     }
 
