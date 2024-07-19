@@ -1,6 +1,14 @@
 //version 4
 console.log('nate-gh');
 
+// Global function to unhide form (or any div that is hidden)
+function unhideForm(formId) {
+    const form = document.getElementById(formId);
+    if (form) {
+        form.classList.remove('hidden');
+    }
+}
+
 //Form handling
 
 var Webflow = Webflow || [];
@@ -42,29 +50,6 @@ Webflow.push(function() {
         showLoading(); // show loading indicator
 
         const formData = new FormData(event.target);
-        const email3 = formData.get('Email-2'); // Extracting Email value from the form
-
-        if (email3) {
-            const apiURL = 'https://eohj8yatziqwvp.m.pipedream.net';
-            fetch(apiURL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                apiResponded = true;
-                handleApiResponse(data);
-            })
-            .catch(error => console.error('Error in API call:', error));
-        }
-
-        // Function to handle API response
-        function handleApiResponse(data) {
-            if (data.id) {
-                setCookie("candid-uid", data.id, 365);
-            }
-            setCookie("candid-survey-completed", String(data.survey), 365);
-        }
 
         let responseReceived = false;
         let twoSecondPassed = false;
@@ -138,5 +123,5 @@ Webflow.push(function() {
     const form = document.getElementById('wf-form-Webinar-Form-PS-2');
 
     // capture form submission event
-    if (form) form.addEventListener('submit', triggerSubmit);
+    form.addEventListener('submit', triggerSubmit);
 });
